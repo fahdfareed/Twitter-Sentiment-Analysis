@@ -23,6 +23,11 @@ This function returns a list of the most recent trends within the Boston Metropo
 
 ## Google NLP
 
+This application uses the Google NLP to find the various sentiments of a given statement and then classifies them into Positive, Negative or Neutral
+
+### SENTIMENT_ANALYSIS
+
+The function takes in a list of arrays of Tweets and then uses the Google NLP API to find their sentiment. It then classifies them into Positive, Negative or Neutral according to a predefined threshold and then prints out the Tweets and their Sentiment.
 
 
 # Sentimental Analysis for the Tweets of the President of Unites States.
