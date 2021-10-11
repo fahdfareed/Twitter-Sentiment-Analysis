@@ -33,7 +33,7 @@ The function takes in a list of arrays of Tweets and then uses the Google NLP AP
 # Sentimental Analysis for the Tweets of the President of Unites States.
 In this project I use Google's NLP API and Twitter API to get an analysis of what the sentiment of the president of the United State is given his declining popularity. Essentially we will get the top Tweets from the Twitter API and then analyze how the president currently feel.
 
-With every tweet we will then do a query search with the name of the President or some other parameter and compare the trends of how the people's reaction is to the President after the tweet.
+With every tweet we will then do a query search with the name of the President or some other parameter and compare the trends of how the people's reaction is to the President.
 
 ### User Stories
 
@@ -50,3 +50,9 @@ With every tweet we will then do a query search with the name of the President o
 6. As a user I want to *search a particular keyword* and get the tweets associated with it.
 
 7. As a user I want to *get a sentimental analysis* of the tweets which are the result of a particular query.
+
+## GUI
+This project uses the PySimpleGUI library something that I have been using for the first time. It provided me with a great skillset on incorporating different GUI items such as images, text, multiline and ButTons on my application. It added a much needed user display interface as the application itself did not rely on any user input. It can now be run by anyone without any knowledge of Python.
+
+### Running the Application
+Clone the application and use python3 to run the twitter.py file. Ensure you have tweepy and google.cloud
