@@ -35,7 +35,7 @@ def get_latest_searches(keyword):
     auth.set_access_token(access_key, access_secret)
     api = tweepy.API(auth)
 
-    #get most recent 20 tweets with the given keyword
+    #get most recent 30 tweets with the given keyword
     tweets = []
 
     latest = api.search_tweets(q = keyword, count = 30, tweet_mode = "extended", lang = "en")
@@ -57,7 +57,7 @@ def get_trends():
     return tweets
 
 def sentiment_analysis(tweets):
-    client = language_v1.LanguageServiceClient.from_service_account_json("/home/fahad/Downloads/savvy-camp-327517-adcd0a108faa.json")
+    client = language_v1.LanguageServiceClient.from_service_account_json("")
 
     analyzed = []
     scored = []
