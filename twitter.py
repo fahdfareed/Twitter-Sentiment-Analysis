@@ -7,7 +7,11 @@ from PIL import Image
 import os
 import io
 
-
+consumer_key = ""
+consumer_secret = ""
+access_key = ""
+access_secret = ""
+path_key = ""
 
 def get_latest_tweet(handle):
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -57,7 +61,7 @@ def get_trends():
     return tweets
 
 def sentiment_analysis(tweets):
-    client = language_v1.LanguageServiceClient.from_service_account_json("")
+    client = language_v1.LanguageServiceClient.from_service_account_json(path_key)
 
     analyzed = []
     scored = []
@@ -108,8 +112,8 @@ if __name__ == '__main__':
     latest_tweet = latest_tweet[0]
     sentiment = "The Tweet is " + sentiment
 
-    #reactions = sentiment_analysis(get_latest_thirty_tweets("Biden"))
-    reactions =["Positive", "Negative", "Neutral" ,"Positive", "Negative", "Neutral", "Neutral","Positive", "Negative", "Neutral","Positive", "Negative", "Neutral","Positive", "Negative", "Neutral","Positive", "Negative", "Neutral"]
+    reactions = sentiment_analysis(get_latest_searches("Biden"))
+    #reactions =["Positive", "Negative", "Neutral" ,"Positive", "Negative", "Neutral", "Neutral","Positive", "Negative", "Neutral","Positive", "Negative", "Neutral","Positive", "Negative", "Neutral","Positive", "Negative", "Neutral"]
     summed = {"Positive":0, "Neutral":0, "Negative":0}
     for i in reactions:
         summed[i] += 1/30
