@@ -13,6 +13,8 @@ consumer_key = ""
 consumer_secret = ""
 access_key = ""
 access_secret = ""
+
+# Path to the Google Key
 path_key = ""
 
 def authenticate():
@@ -27,22 +29,22 @@ def get_latest_tweet(handle):
     latest = api.user_timeline(screen_name = handle, count = 1, tweet_mode = "extended")
     return [latest[-1]._json["full_text"]]
 
-# Returns the top thirty Tweets of the provided username
+# Returns the top 10 Tweets of the provided username
 def get_latest_thirty_tweets(handle):
     
     api = authenticate()
     tweets = []
-    latest = api.user_timeline(screen_name = handle, count = 30, tweet_mode = "extended")
+    latest = api.user_timeline(screen_name = handle, count = 10, tweet_mode = "extended")
     for i in range(len(latest)-1, -1, -1):
         tweets.append(latest[i]._json["full_text"])
     return tweets
 
-# Returns the top 30 Tweets that contain the keyword searched for
+# Returns the top 10 Tweets that contain the keyword searched for
 def get_latest_searches(keyword):
     
     api = authenticate()
     tweets = []
-    latest = api.search_tweets(q = keyword, count = 30, tweet_mode = "extended", lang = "en")
+    latest = api.search_tweets(q = keyword, count = 10, tweet_mode = "extended", lang = "en")
     for i in range(len(latest)-1, -1, -1):
         tweets.append(latest[i]._json["full_text"])
     return tweets
@@ -89,22 +91,28 @@ def user_main():
     print("What Option do you want?")
     print("1. Latest Tweet \n2. Latest 10 Tweets \n3. Search Keyword \n4. Latest Boston Trend")
     option = input("Enter Now:")
-    key = str(input("Enter handle or keyword:"))
+    if option != '4':
+        key = str(input("Enter handle, keyword:"))
 
     # get single tweet
     if option == '1':
-        latest = sentiment_analysis(get_latest_tweet(key))
+        latest = get_latest_tweet(key)
     # get 30 tweets
     elif option == '2':
-        latest = sentiment_analysis(get_latest_thirty_tweets(key))
+        latest = get_latest_thirty_tweets(key)
     # get tweets related to a keyword
     elif option == '3':
-        latest = sentiment_analysis(get_latest_keyword(key))
+        latest = get_latest_keyword(key)
     # get latest trends for Boston
     elif option == '4':
         latest = get_trends()
         for i in latest:
             print(i)
+        return
+
+    sentiment = sentiment_analysis(latest)
+    for i, j in enumerate(latest):
+        print(sentiment[i], " - ", j)
 
 # Preset values adhering to the project ""
 def auto_main():
@@ -148,8 +156,8 @@ def auto_main():
     window.close()
 
 if __name__ == '__main__':
-    user_choice = input("If you want to see President Bidens Tweets and Approval enter 1")
-    if user_choice == 1:
+    user_choice = input("If you want to see President Bidens Tweets and Approval enter 1 ")
+    if user_choice == "1":
         auto_main()
     else:
         user_main()
