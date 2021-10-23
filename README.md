@@ -51,6 +51,8 @@ With every tweet we will then do a query search with the name of the President o
 
 7. As a user I want to *get a sentimental analysis* of the tweets which are the result of a particular query.
 
+8. As a user I want the option to be able to get the latest tweet of the President and a sentiment of how users feel about him.
+
 ## GUI
 This project uses the PySimpleGUI library something that I have been using for the first time. It provided me with a great skillset on incorporating different GUI items such as images, text, multiline and ButTons on my application. It added a much needed user display interface as the application itself did not rely on any user input. It can now be run by anyone without any knowledge of Python.
 
