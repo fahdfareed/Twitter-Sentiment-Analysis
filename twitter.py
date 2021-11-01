@@ -9,13 +9,13 @@ import io
 
 
 # Twitter API Keys
-consumer_key = ""
-consumer_secret = ""
-access_key = ""
-access_secret = ""
+consumer_key = "BLRdMXoMyknp3aC2G8nuvyE2d"
+consumer_secret = "NRvfjErPFdJRBjpBkzfr9TdLAYoythFXoFe6U6rVuscO0AnzFz"
+access_key = "49124003-IJPd0nEGWYFep6cluAbdvm8Z48Bdl4iw5hTkFoyce"
+access_secret = "WrTrXKfFQtszWGqsK3p4iOLl6Dn6Cwwq3NNAwNlkRgb5Q"
 
 # Path to the Google Key
-path_key = ""
+path_key = "/home/fahad/Downloads/key.json"
 
 def authenticate():
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -24,14 +24,12 @@ def authenticate():
 
 # Returns the latest Tweet of the provided username
 def get_latest_tweet(handle):
-    
     api = authenticate()
     latest = api.user_timeline(screen_name = handle, count = 1, tweet_mode = "extended")
     return [latest[-1]._json["full_text"]]
 
 # Returns the top 10 Tweets of the provided username
 def get_latest_thirty_tweets(handle):
-    
     api = authenticate()
     tweets = []
     latest = api.user_timeline(screen_name = handle, count = 10, tweet_mode = "extended")
@@ -41,7 +39,6 @@ def get_latest_thirty_tweets(handle):
 
 # Returns the top 10 Tweets that contain the keyword searched for
 def get_latest_searches(keyword):
-    
     api = authenticate()
     tweets = []
     latest = api.search_tweets(q = keyword, count = 10, tweet_mode = "extended", lang = "en")
@@ -64,7 +61,6 @@ def get_trends(code = 56013645):
 def sentiment_analysis(tweets):
     # Set Client
     client = language_v1.LanguageServiceClient.from_service_account_json(path_key)
-
     analyzed = []
     scored = []
     for i in tweets:
@@ -82,9 +78,6 @@ def sentiment_analysis(tweets):
             nature = "Neutral"
         scored.append(nature)
     return scored
-
-
-
 
 # Allowing user to enter the values
 def user_main(): 
