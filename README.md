@@ -58,3 +58,45 @@ This project uses the PySimpleGUI library something that I have been using for t
 
 ### Running the Application
 Clone the application and use python3 to run the twitter.py file. Ensure you have tweepy and google.cloud
+
+
+## Test Cases
+Each function was tested using pytest and Actions.
+
+Here are the test cases:
+
+### get_latest_tweet()
+| Test| Description | Expected Value | Actual Value | Result |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| Normal  | Actual Handle with alphabets only  | Accepted | Accepted | Passed |
+| Alphanumeric  | Actual Handle with alphabets and digits only  | Accepted | Accepted | Passed |
+| Digits only  | Handle with igits only  | Rejects | Rejects| Passed  
+| Underscore  | Actual Handle with underscores  | Accepted | Accepted | Passed |
+| Symbol  | Handle with unacceptable symbols  | Rejects | Accepted | Failed |
+| Length  | Handle with unacceptable length  | Rejects | Accepted | Failed |
+| Input Sanitization  | Handle with security issues trying to gather personal information  | Rejects | Accepted | Failed |
+
+### get_latest_thirty_tweets()
+| Test| Description | Expected Value | Actual Value | Result |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| Normal  | Actual Handle with alphabets only  | Accepted | Accepted | Passed |
+| Alphanumeric  | Actual Handle with alphabets and digits only  | Accepted | Accepted | Passed |
+| Underscore  | Actual Handle with underscores  | Accepted | Accepted | Passed |
+| Symbol  | Handle with unacceptable symbols  | Rejects | Accepted | Failed |
+| Length  | Handle with unacceptable length  | Rejects | Accepted | Failed |
+| Input Sanitization  | Handle with security issues trying to gather personal information  | Rejects | Accepted | Failed |
+
+
+### get_location()
+Since no user input, therefore no test written
+
+
+### get_latest_thirty_tweets()
+| Test| Description | Value | Expected Value | Actual Value | Result |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| Normal  | Test if it works correctly| bad  | Negative | Negative | Passed |
+| Stress | Test if program crashes if a large value is passed| bad * 100 | Negative * 100 | Negative * 100 | Passed |
+| Correctness  | Test if it correctly classifies into categories| good, normal, bad  | Positive, Neutral, Negative | Positive, Neutral, Negative | Passed |
+| Number  | Test if numbers are characterized as Neutral  | 8, 605, 387, | Neutral | Neutral | Passed |
+| Large Numbers  | Test if large numbers are characterized as Neutral  | 654549785669827658, 654464654605, 38654565466545466546547| Neutral | Positive | Failed |
+| Non Words  | Test if non words are tested as Neutral| '3vil', 'l33t0rs', 'd3c1d3d', '4our', 'n0T', 'd3sign3ers', 'wefkbhjweb', 'bwdccwdbjbhj', 'uwtfqytfw'  | Neutral | Positive | Failes |
