@@ -9,10 +9,10 @@ import io
 
 
 # Twitter API Keys
-consumer_key = "BLRdMXoMyknp3aC2G8nuvyE2d"
-consumer_secret = "NRvfjErPFdJRBjpBkzfr9TdLAYoythFXoFe6U6rVuscO0AnzFz"
-access_key = "49124003-IJPd0nEGWYFep6cluAbdvm8Z48Bdl4iw5hTkFoyce"
-access_secret = "WrTrXKfFQtszWGqsK3p4iOLl6Dn6Cwwq3NNAwNlkRgb5Q"
+consumer_key = ""
+consumer_secret = ""
+access_key = ""
+access_secret = ""
 
 # Path to the Google Key
 path_key = "/home/fahad/Downloads/key.json"
