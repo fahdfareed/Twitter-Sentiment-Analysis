@@ -95,8 +95,4 @@ Since no user input, therefore no test written
 | Test| Description | Value | Expected Value | Actual Value | Result |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Normal  | Test if it works correctly| bad  | Negative | Negative | Passed |
-| Stress | Test if program crashes if a large value is passed| bad * 100 | Negative * 100 | Negative * 100 | Passed |
-| Correctness  | Test if it correctly classifies into categories| good, normal, bad  | Positive, Neutral, Negative | Positive, Neutral, Negative | Passed |
-| Number  | Test if numbers are characterized as Neutral  | 8, 605, 387, | Neutral | Neutral | Passed |
-| Large Numbers  | Test if large numbers are characterized as Neutral  | 654549785669827658, 654464654605, 38654565466545466546547| Neutral | Positive | Failed |
-| Non Words  | Test if non words are tested as Neutral| '3vil', 'l33t0rs', 'd3c1d3d', '4our', 'n0T', 'd3sign3ers', 'wefkbhjweb', 'bwdccwdbjbhj', 'uwtfqytfw'  | Neutral | Positive | Failes |
+
