@@ -95,4 +95,7 @@ Since no user input, therefore no test written
 | Test| Description | Value | Expected Value | Actual Value | Result |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Normal  | Test if it works correctly| bad  | Negative | Negative | Passed |
+| Stress | Test if program crashes if a large value is passed| [bad * 100] | [Negative * 100] | [Negative * 100] | Passed |
+| Correctness  | Test if it correctly classifies into categories| good, normal, bad  | Positive, Neutral, Negative | Positive, Neutral, Negative | Passed |
+| Number  | Test if numbers are characterized as Neutral  | 8, 605, 387, | Neutral | Neutral | Passed |
 
